@@ -1,0 +1,5 @@
+{
+  "name": "Planificador de Viajes AI - Jv",
+  "description": "Una aplicación web que utiliza la API de Gemini para generar itinerarios de viaje personalizados basados en las preferencias del usuario, como destino, duración, presupuesto e intereses.",
+  "requestFramePermissions": []
+}
