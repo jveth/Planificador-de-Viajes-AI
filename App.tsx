@@ -1,28 +1,27 @@
 
 import React, { useState, useCallback } from 'react';
-import { TravelPreferences } from './types';
+import { TravelPreferences, Itinerary } from './types';
 import { generateItinerary } from './services/geminiService';
 import TravelForm from './components/TravelForm';
 import ItineraryDisplay from './components/ItineraryDisplay';
 import Header from './components/Header';
-import { Bot, MapPin, Calendar, DollarSign, Heart, Ban, Wand2 } from 'lucide-react';
 
 const App: React.FC = () => {
   const [preferences, setPreferences] = useState<TravelPreferences>({
     destination: '',
-    duration: 5,
+    duration: 3,
     budget: 'Moderado',
     interests: 'cultura, comida local, paisajes naturales',
     restrictions: 'ninguna',
   });
-  const [itinerary, setItinerary] = useState<string>('');
+  const [itinerary, setItinerary] = useState<Itinerary | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<string>('');
 
   const handleGenerateItinerary = useCallback(async () => {
     setIsLoading(true);
     setError('');
-    setItinerary('');
+    setItinerary(null);
     try {
       const result = await generateItinerary(preferences);
       setItinerary(result);
