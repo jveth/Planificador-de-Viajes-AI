@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { TravelPreferences } from '../types';
-import { MapPin, Calendar, DollarSign, Heart, Ban, Wand2, Loader2 } from 'lucide-react';
+import { MapPin, Calendar, DollarSign, Heart, Ban, Wand2, Loader2, Users } from 'lucide-react';
 
 interface TravelFormProps {
   preferences: TravelPreferences;
@@ -16,7 +16,7 @@ const TravelForm: React.FC<TravelFormProps> = ({ preferences, setPreferences, on
     const { name, value } = e.target;
     setPreferences(prev => ({
       ...prev,
-      [name]: name === 'duration' ? parseInt(value, 10) : value,
+      [name]: name === 'duration' || name === 'travelers' ? parseInt(value, 10) : value,
     }));
   };
 
@@ -80,6 +80,40 @@ const TravelForm: React.FC<TravelFormProps> = ({ preferences, setPreferences, on
               <option>Moderado</option>
               <option>Lujoso</option>
             </select>
+          </div>
+        </div>
+
+        <div className="space-y-1">
+          <label htmlFor="specificBudget" className="block text-sm font-medium text-gray-600 dark:text-gray-300">Presupuesto Específico</label>
+          <div className="relative">
+            <DollarSign className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
+            <input
+              type="text"
+              id="specificBudget"
+              name="specificBudget"
+              value={preferences.specificBudget}
+              onChange={handleChange}
+              placeholder="Ej. $3,500 US"
+              className="w-full pl-10 pr-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:ring-blue-500 focus:border-blue-500 bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-gray-100"
+            />
+          </div>
+        </div>
+
+        <div className="space-y-1">
+          <label htmlFor="travelers" className="block text-sm font-medium text-gray-600 dark:text-gray-300">Cantidad de Viajeros</label>
+          <div className="relative">
+            <Users className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
+            <input
+              type="number"
+              id="travelers"
+              name="travelers"
+              value={preferences.travelers}
+              onChange={handleChange}
+              min="1"
+              max="20"
+              required
+              className="w-full pl-10 pr-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:ring-blue-500 focus:border-blue-500 bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-gray-100"
+            />
           </div>
         </div>
 

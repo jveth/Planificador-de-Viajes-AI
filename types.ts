@@ -3,6 +3,8 @@ export interface TravelPreferences {
   destination: string;
   duration: number;
   budget: string;
+  specificBudget: string;
+  travelers: number;
   interests: string;
   restrictions: string;
 }

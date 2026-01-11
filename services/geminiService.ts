@@ -12,6 +12,8 @@ Detalles del viaje:
 - Destino: ${preferences.destination}
 - Duración: ${preferences.duration} días
 - Presupuesto: ${preferences.budget}
+- Presupuesto Específico: ${preferences.specificBudget || 'No especificado'}
+- Cantidad de Viajeros: ${preferences.travelers}
 - Intereses: ${preferences.interests}
 - Restricciones: ${preferences.restrictions}
 

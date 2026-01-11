@@ -11,6 +11,8 @@ const App: React.FC = () => {
     destination: '',
     duration: 3,
     budget: 'Moderado',
+    specificBudget: '',
+    travelers: 1,
     interests: 'cultura, comida local, paisajes naturales',
     restrictions: 'ninguna',
   });
